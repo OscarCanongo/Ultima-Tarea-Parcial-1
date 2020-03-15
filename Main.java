@@ -57,7 +57,8 @@ public class Main{
 		//Desviacion Estandar y varianza
 		desviacionEstandar(array, mediaImprimir);
 
-
+		//Moda
+		moda(array);
 
 	}
 
@@ -119,6 +120,41 @@ public class Main{
 		System.out.println();
 		System.out.printf("La desviacion estandar es: %.2f",  desviacion);
 		System.out.println();
+	}
+
+	public static void moda(int[] arr){
+		int counter=0;
+		int num=arr[0];
+		int counter2=0;
+		int max=0;
+		for(int i=0; i<arr.length; i++){
+			if(num==arr[i]){
+				counter++;
+				if(counter>max)
+					max=counter;
+			}
+			else{
+				if(counter>max)
+					max=counter;
+				counter=1;
+				num=arr[i];
+			}
+		}
+		num=arr[0];
+		System.out.println("La moda es: ");
+		for(int j=0; j<arr.length; j++){
+			if(num==arr[j]){
+				counter2++;
+				if(counter2==max){
+					System.out.println(num + " Con " + max + " repeticiones");
+					counter2=0;
+				}
+			}
+			else{
+				counter2=1;
+				num=arr[j];
+			}
+		}
 	}
 	
 }   
