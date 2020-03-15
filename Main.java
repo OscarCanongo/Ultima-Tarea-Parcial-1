@@ -29,10 +29,8 @@ public class Main{
 			array[i+1]=aleatorio;
 			media+=aleatorio;	
 		}
-		//Revisando si se cumple un ciclo completo
-		if(esPrimo(corrimiento) && esPrimo(modulo)){
-			System.out.println("No hay cola");
-		}
+		//Buscando la cola
+		buscarLaCola(array, modulo);
 
 		double mediaImprimir = media/(numeros+1);
 
@@ -60,40 +58,6 @@ public class Main{
 		//Moda
 		moda(array);
 
-	}
-
-	public static boolean esPrimo(int x){
-		if(x==1 || x==2 || x==3 || x==5 || x==7 || x==11){
-			return true;
-		}
-		else{
-			if(x%2==0){
-				return false;
-			}
-			else{
-				if(x%3 == 0){
-					return false;
-				}	
-				else{
-					if(x%5==0){
-						return false;
-					}
-					else{
-						if(x%7==0){
-							return false;
-						}
-						else{
-							if(x%11==0){
-								return false;
-							}
-							else{
-								return true;
-							}
-						}
-					}	
-				}
-			}
-		}
 	}
 
 	public static void InsertionSort(int arr[]) { 
@@ -153,6 +117,30 @@ public class Main{
 			else{
 				counter2=1;
 				num=arr[j];
+			}
+		}
+	}
+
+	public static void buscarLaCola(int[] arr, int modulo){
+		int counter=0;
+		int aux=1;
+		if(arr[0] == arr[modulo]){
+			System.out.println("No hay cola");
+		}
+		else{
+			while(counter==0){
+				for(int i=aux; i<arr.length-1; i++){
+					if(arr[aux]==arr[i] && arr[aux+1] == arr[i+1]){
+						counter = 1;
+					}
+				}
+				if(counter==0){
+					aux++;
+				}
+			}
+			System.out.println("La cola es: ");
+			for(int j=0; j<aux; j++){
+				System.out.println(arr[j]);
 			}
 		}
 	}
