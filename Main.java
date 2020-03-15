@@ -7,6 +7,7 @@ public class Main{
 		int modulo=0;
 		int numeros=0;
         double aleatorio=0;
+		int cola = 0;
 
 		Scanner sc = new Scanner(System.in);
 
@@ -15,11 +16,53 @@ public class Main{
 		corrimiento = sc.nextInt();
 		modulo = sc.nextInt();
 		numeros = sc.nextInt();
+		double[] array = new double[numeros];
 
+		System.out.println(semilla);
 		for (int i=0;i<numeros;i++) {
 			aleatorio=(semilla*multiplicador+corrimiento)%modulo;
         	System.out.println(aleatorio);
-            multiplicador=aleatorio;	
+            multiplicador=aleatorio;
+			array[i]=aleatorio;	
+		}
+		if(esPrimo(corrimiento) && esPrimo(modulo)){
+			System.out.println("No hay cola");
 		}
 	}
+
+	public static boolean esPrimo(int x){
+		if(x==1 || x==2 || x==3 || x==5 || x==7 || x==11){
+			return true;
+		}
+		else{
+			if(x%2==0){
+				return false;
+			}
+			else{
+				if(x%3 == 0){
+					return false;
+				}	
+				else{
+					if(x%5==0){
+						return false;
+					}
+					else{
+						if(x%7==0){
+							return false;
+						}
+						else{
+							if(x%11==0){
+								return false;
+							}
+							else{
+								return true;
+							}
+						}
+					}	
+				}
+			}
+		}
+	}
+
+	
 }   
