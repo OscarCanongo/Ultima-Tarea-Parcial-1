@@ -54,7 +54,7 @@ public class Main{
 			System.out.println(((numeros+1)/2)+1);
 		}
 
-		//Desviacion Estandar
+		//Desviacion Estandar y varianza
 		desviacionEstandar(array, mediaImprimir);
 
 
@@ -111,9 +111,12 @@ public class Main{
 	public static void desviacionEstandar(int[]arr, double media){
 		double counter=0;
 		for (int i=0; i<arr.length; i++){
-			counter+=(arr[i]-media)*(arr[i]-media)	;
+			counter+=(arr[i]-media)*(arr[i]-media);
 		}
-		double desviacion=Math.sqrt(counter/arr.length);
+		double varianza=counter/arr.length;
+		double desviacion=Math.sqrt(varianza);
+		System.out.printf("La varianza es: %.2f",  varianza);
+		System.out.println();
 		System.out.printf("La desviacion estandar es: %.2f",  desviacion);
 		System.out.println();
 	}
