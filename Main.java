@@ -36,13 +36,14 @@ public class Main{
 
 		double mediaImprimir = media/(numeros+1);
 
-		InsertionSort(array);
+		InsertionSort(array); //Ordenando el array
 
-
+		//Media
 		System.out.print("La media es: ");
 		System.out.printf("%.2f",  mediaImprimir);
 		System.out.println();
 
+		//Mediana
 		if((numeros+1)%2==0){
 			System.out.println("Las medianas son: ");
 			System.out.println(array[(numeros+1)/2]);
@@ -52,6 +53,12 @@ public class Main{
 			System.out.print("La mediana es ");
 			System.out.println(((numeros+1)/2)+1);
 		}
+
+		//Desviacion Estandar
+		desviacionEstandar(array, mediaImprimir);
+
+
+
 	}
 
 	public static boolean esPrimo(int x){
@@ -88,8 +95,7 @@ public class Main{
 		}
 	}
 
-	public static void InsertionSort(int arr[]) 
-    { 
+	public static void InsertionSort(int arr[]) { 
         int n = arr.length; 
         for (int i = 1; i < n; ++i) { 
             int key = arr[i]; 
@@ -100,6 +106,16 @@ public class Main{
             } 
             arr[j + 1] = key; 
         } 
-    } 
+    }
+
+	public static void desviacionEstandar(int[]arr, double media){
+		double counter=0;
+		for (int i=0; i<arr.length; i++){
+			counter+=(arr[i]-media)*(arr[i]-media)	;
+		}
+		double desviacion=Math.sqrt(counter/arr.length);
+		System.out.printf("La desviacion estandar es: %.2f",  desviacion);
+		System.out.println();
+	}
 	
 }   
