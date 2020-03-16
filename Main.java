@@ -58,6 +58,11 @@ public class Main{
 		//Moda
 		moda(array);
 
+		//System.out.println(array.length);
+
+		//Ajuste
+		ajustar(array,modulo);
+
 	}
 
 	public static void InsertionSort(int arr[]) { 
@@ -163,6 +168,116 @@ public class Main{
 			}
 
 		}
+	}
+
+	public static void ajustar(int[]arr, int modulo){
+		double[] array = new double[arr.length];
+		double l = array.length;
+		//System.out.println(modulo);
+		for(int i=0; i<arr.length; i++){
+			array[i]=(double)arr[i]/modulo;
+			//System.out.println(array[i]);
+			//System.out.println(modulo);
+		}
+		int uno=0;
+		int dos=0;
+		int tres=0;
+		int cuatro=0;
+		int cinco=0;
+		int seis=0;
+		int siete=0;
+		int ocho=0;
+		int nueve=0;
+		int diez=0;
+		
+		for(int j=0; j<array.length; j++){
+			if(array[j]<=0.1){
+				uno++;
+			}
+			else{
+				if(array[j]<=0.2){
+					dos++;
+				}
+				else{
+					if(array[j]<=0.3){
+						tres++;
+					}
+					else{
+						if(array[j]<=0.4){
+							cuatro++;
+						}
+						else{
+							if(array[j]<=0.5){
+								cinco++;
+							}
+							else{
+								if(array[j]<=0.6){
+									seis++;
+								}
+								else{
+									if(array[j]<=0.7){
+										siete++;
+									}
+									else{
+										if(array[j]<=0.8){
+											ocho++;
+										}
+										else{
+											if(array[j]<=0.9){
+												nueve++;
+											}
+											else{
+												diez++;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		System.out.println(uno);
+		System.out.println("Porcentaje de valores entre 0.0 y 0.1");
+		double algo=(double)(uno/l*100);
+		System.out.println(algo + "%");
+
+		System.out.println("Porcentaje de valores entre 0.1 y 0.2");
+		double algo2=(double)(dos/l*100);
+		System.out.println(algo2 + "%");
+
+		System.out.println("Porcentaje de valores entre 0.2 y 0.3");
+		double algo3=(double)(tres/l*100);
+		System.out.println(algo3 + "%");
+
+		System.out.println("Porcentaje de valores entre 0.3 y 0.4");
+		double algo4=(double)(cuatro/l*100);
+		System.out.println(algo4 + "%");
+
+		System.out.println("Porcentaje de valores entre 0.4 y 0.5");
+		double algo5=(double)(cinco/l*100);
+		System.out.println(algo5 + "%");
+
+		System.out.println("Porcentaje de valores entre 0.5 y 0.6");
+		double algo6=(double)(seis/l*100);
+		System.out.println(algo6 + "%");
+
+		System.out.println("Porcentaje de valores entre 0.6 y 0.7");
+		double algo7=(double)(siete/l*100);
+		System.out.println(algo7 + "%");
+
+		System.out.println("Porcentaje de valores entre 0.7 y 0.8");
+		double algo8=(double)(ocho/l*100);
+		System.out.println(algo8 + "%");
+
+		System.out.println("Porcentaje de valores entre 0.8 y 0.9");
+		double algo9=(double)(nueve/l*100);
+		System.out.println(algo9 + "%");
+
+		System.out.println("Porcentaje de valores entre 0.9 y 1.0");
+		double algo10=(double)(diez/l*100);
+		System.out.println(algo10 + "%");
 	}
 	
 }   
