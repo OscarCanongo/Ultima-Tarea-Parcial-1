@@ -29,7 +29,7 @@ public class Main{
 			array[i+1]=aleatorio;
 			media+=aleatorio;	
 		}
-		//Buscando la cola
+		//Buscando la cola y tambien termino dando el periodo
 		buscarLaCola(array, modulo);
 
 		double mediaImprimir = media/(numeros+1);
@@ -124,14 +124,20 @@ public class Main{
 	public static void buscarLaCola(int[] arr, int modulo){
 		int counter=0;
 		int aux=1;
+		int algo=0;
 		if(arr[0] == arr[modulo]){
 			System.out.println("No hay cola");
+			System.out.println("El periodo es: ");
+			for(int k=0; k<modulo;k++){
+				System.out.println(arr[k]);
+			}
 		}
 		else{
 			while(counter==0){
 				for(int i=aux; i<arr.length-1; i++){
-					if(arr[aux]==arr[i] && arr[aux+1] == arr[i+1]){
+					if(arr[aux]==arr[i+1]){
 						counter = 1;
+						i=arr.length;
 					}
 				}
 				if(counter==0){
@@ -142,6 +148,20 @@ public class Main{
 			for(int j=0; j<aux; j++){
 				System.out.println(arr[j]);
 			}
+			System.out.println("El periodo es: ");
+			counter=0;
+			int aux2=0;
+			for(int q=aux; q<arr.length; q++){
+				if(arr[aux]==arr[q+1]){
+					aux2=q+1;
+					q=arr.length;
+					//System.out.println("el aux2 " + aux2);	
+				}
+			}
+			for(int l=aux; l<aux2; l++){
+				System.out.println(arr[l]);
+			}
+
 		}
 	}
 	
