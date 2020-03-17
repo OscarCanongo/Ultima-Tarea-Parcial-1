@@ -8,7 +8,7 @@ public class Main{
 		int numeros=0;
         int aleatorio=0;
 		int cola = 0;
-		int mediana = 0;
+		double mediana = 0;
 
 		Scanner sc = new Scanner(System.in);
 
@@ -65,14 +65,14 @@ public class Main{
 		System.out.println();
 
 		//Mediana
-		if((numeros+1)%2==0){
-			System.out.println("Las medianas son: ");
-			System.out.println(array2[(numeros+1)/2]);
-			System.out.println(array2[((numeros+1)/2)+1]);
+		if(numeros%2==0){
+			System.out.print("Las mediana es: ");
+			mediana = (array2[(numeros/2)-1] + array2[(numeros)/2])/2;
+			System.out.println(mediana);
 		}
 		else{
 			System.out.print("La mediana es ");
-			System.out.println(array2[((int)(numeros+1)/2)+1]);
+			System.out.println(array2[(int)(numeros/2)]);
 		}
 
 		//Desviacion Estandar y varianza
