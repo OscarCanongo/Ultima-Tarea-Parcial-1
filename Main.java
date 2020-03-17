@@ -45,7 +45,7 @@ public class Main{
 			}
 		}
 		//Buscando la cola y tambien termino dando el periodo
-		buscarLaCola(array, modulo);
+		//buscarLaCola(array, modulo);
 
 		double mediaImprimir = media/(numeros+1);
 
@@ -118,8 +118,8 @@ public class Main{
 		int counter2=0;
 		int max=0;
 		for(int i=0; i<numeros-1; i++){
-			System.out.println("Num: " + num);
-			System.out.println("Arr; "+arr[i+1]);
+			//System.out.println("Num: " + num);
+			//System.out.println("Arr; "+arr[i+1]);
 			if(num==arr[i+1]){
 				counter++;
 				if(counter>max)
@@ -152,7 +152,7 @@ public class Main{
 			}
 		}
 		if(bandera==0){
-			System.out.println("No hay moda");
+			System.out.println("Todo es moda");
 		}
 	}
 
@@ -206,7 +206,7 @@ public class Main{
 		//System.out.println(modulo);
 		for(int i=0; i<arr.length; i++){
 			array[i]=(double)arr[i]/modulo;
-			//System.out.println(array[i]);
+			//System.out.println(arr[i]);
 			//System.out.println(modulo);
 		}
 		int uno=0;
