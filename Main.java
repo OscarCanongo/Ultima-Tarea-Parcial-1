@@ -36,7 +36,7 @@ public class Main{
 			array = new int[modulo+1];
 			//System.out.println(semilla);
 		    array[0]=semilla;
-			for (int i=0;i<semilla;i++) {
+			for (int i=1;i<modulo;i++) {
 				aleatorio=(semilla*multiplicador+corrimiento)%modulo;
 				//System.out.println(aleatorio);
 				semilla=aleatorio;
@@ -44,12 +44,12 @@ public class Main{
 			}
 		}
 		//Buscando la cola y tambien termino dando el periodo
-		//buscarLaCola(array, modulo);
+		buscarLaCola(array, modulo);
 
 		int[]array2 = new int[numeros];
 		for(int v=0; v<numeros; v++){
 			array2[v]=array[v];
-			System.out.println(array2[v]);
+			//System.out.println(array2[v]);
 			media+=array2[v];	
 		}
 		
@@ -58,6 +58,10 @@ public class Main{
 		double mediaImprimir = (double)media/(double)(numeros);
 
 		InsertionSort(array2); //Ordenando el array
+
+		//for(int v1=0; v1<numeros; v1++){
+		//	System.out.println(array2[v1]);	
+		//}
 
 		//Media
 		System.out.print("La media es: ");
