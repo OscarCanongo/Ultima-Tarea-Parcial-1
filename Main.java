@@ -49,7 +49,7 @@ public class Main{
 		int[]array2 = new int[numeros];
 		for(int v=0; v<numeros; v++){
 			array2[v]=array[v];
-			//System.out.println(array2[v]);
+			System.out.println(array2[v]);
 			media+=array2[v];	
 		}
 		
@@ -165,7 +165,7 @@ public class Main{
 			}
 		}
 		if(bandera==0){
-			System.out.println("Todo es moda");
+			System.out.println("Todos los datos son distintos, algunos matematicos se refieren a esto como No hay moda");
 		}
 	}
 
