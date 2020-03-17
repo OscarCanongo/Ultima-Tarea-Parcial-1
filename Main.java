@@ -17,24 +17,44 @@ public class Main{
 		corrimiento = sc.nextInt();
 		modulo = sc.nextInt();
 		numeros = sc.nextInt();
-		int[] array = new int[numeros+1];
 		double media = semilla;
+		int[] array;
 
-		System.out.println(semilla);
-		array[0]=semilla;
-		for (int i=0;i<numeros;i++) {
-			aleatorio=(semilla*multiplicador+corrimiento)%modulo;
-        	System.out.println(aleatorio);
-            multiplicador=aleatorio;
-			array[i+1]=aleatorio;
-			media+=aleatorio;	
+		if(modulo<numeros){
+			array = new int[numeros+1];
+			//System.out.println(semilla);
+		    array[0]=semilla;
+			for (int i=0;i<numeros;i++) {
+				aleatorio=(semilla*multiplicador+corrimiento)%modulo;
+				//System.out.println(aleatorio);
+				multiplicador=aleatorio;
+				array[i+1]=aleatorio;
+				media+=aleatorio;	
+			}
+		}
+		else{
+			array = new int[modulo+1];
+			//System.out.println(semilla);
+		    array[0]=semilla;
+			for (int i=0;i<semilla;i++) {
+				aleatorio=(semilla*multiplicador+corrimiento)%modulo;
+				//System.out.println(aleatorio);
+				multiplicador=aleatorio;
+				array[i+1]=aleatorio;
+				media+=aleatorio;	
+			}
 		}
 		//Buscando la cola y tambien termino dando el periodo
 		buscarLaCola(array, modulo);
 
 		double mediaImprimir = media/(numeros+1);
 
-		InsertionSort(array); //Ordenando el array
+		int[]array2 = new int[numeros];
+		for(int v=0; v<numeros; v++){
+			array2[v]=array[v];
+		}
+
+		InsertionSort(array2); //Ordenando el array
 
 		//Media
 		System.out.print("La media es: ");
@@ -44,24 +64,25 @@ public class Main{
 		//Mediana
 		if((numeros+1)%2==0){
 			System.out.println("Las medianas son: ");
-			System.out.println(array[(numeros+1)/2]);
-			System.out.println(((numeros+1)/2)+1);
+			System.out.println(array2[(numeros+1)/2]);
+			System.out.println(array2[((numeros+1)/2)+1]);
 		}
 		else{
 			System.out.print("La mediana es ");
-			System.out.println(((numeros+1)/2)+1);
+			System.out.println(array2[((int)(numeros+1)/2)+1]);
 		}
 
 		//Desviacion Estandar y varianza
-		desviacionEstandar(array, mediaImprimir);
+		desviacionEstandar(array2, mediaImprimir);
+
 
 		//Moda
-		moda(array);
+		moda(array2, numeros);
 
 		//System.out.println(array.length);
 
 		//Ajuste
-		ajustar(array,modulo);
+		ajustar(array2,modulo);
 
 	}
 
@@ -91,13 +112,15 @@ public class Main{
 		System.out.println();
 	}
 
-	public static void moda(int[] arr){
+	public static void moda(int[] arr, int numeros){
 		int counter=0;
 		int num=arr[0];
 		int counter2=0;
 		int max=0;
-		for(int i=0; i<arr.length; i++){
-			if(num==arr[i]){
+		for(int i=0; i<numeros-1; i++){
+			System.out.println("Num: " + num);
+			System.out.println("Arr; "+arr[i+1]);
+			if(num==arr[i+1]){
 				counter++;
 				if(counter>max)
 					max=counter;
@@ -105,24 +128,31 @@ public class Main{
 			else{
 				if(counter>max)
 					max=counter;
-				counter=1;
-				num=arr[i];
+				counter=0;
+				num=arr[i+1];
 			}
 		}
+		//System.out.println(max);
 		num=arr[0];
+		int bandera=0;
 		System.out.println("La moda es: ");
-		for(int j=0; j<arr.length; j++){
+		for(int j=0; j<numeros-1; j++){
 			if(num==arr[j]){
 				counter2++;
 				if(counter2==max){
-					System.out.println(num + " Con " + max + " repeticiones");
+					System.out.println(num + " Con " + (max+1) + " repeticiones");
 					counter2=0;
+					bandera=1;	
 				}
-			}
+				num=arr[j];
+			}	
 			else{
 				counter2=1;
 				num=arr[j];
 			}
+		}
+		if(bandera==0){
+			System.out.println("No hay moda");
 		}
 	}
 
@@ -238,7 +268,7 @@ public class Main{
 				}
 			}
 		}
-		System.out.println(uno);
+		//System.out.println(uno);
 		System.out.println("Porcentaje de valores entre 0.0 y 0.1");
 		double algo=(double)(uno/l*100);
 		System.out.println(algo + "%");
