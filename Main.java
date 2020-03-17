@@ -146,6 +146,7 @@ public class Main{
 		//System.out.println(max);
 		num=arr[0];
 		int bandera=0;
+		int counterNumeros=0;
 		System.out.println("La moda es: ");
 		for(int j=0; j<numeros-1; j++){
 			if(num==arr[j+1]){
@@ -160,6 +161,7 @@ public class Main{
 					System.out.println(num + " Con " + (max+1) + " repeticiones");
 					counter2=0;
 					bandera=1;	
+					counterNumeros++;
 				}
 				num=arr[j];
 			}	
@@ -170,6 +172,9 @@ public class Main{
 		}
 		if(bandera==0){
 			System.out.println("Todos los datos son distintos, algunos matematicos se refieren a esto como No hay moda");
+		}
+		else{
+			System.out.println("Los numeros de moda son: " + counterNumeros);
 		}
 	}
 
