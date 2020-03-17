@@ -17,7 +17,7 @@ public class Main{
 		corrimiento = sc.nextInt();
 		modulo = sc.nextInt();
 		numeros = sc.nextInt();
-		double media = semilla;
+		double media = 0;
 		int[] array;
 
 		if(modulo<numeros){
@@ -27,9 +27,9 @@ public class Main{
 			for (int i=0;i<numeros;i++) {
 				aleatorio=(semilla*multiplicador+corrimiento)%modulo;
 				//System.out.println(aleatorio);
-				multiplicador=aleatorio;
+				semilla=aleatorio;
 				array[i+1]=aleatorio;
-				media+=aleatorio;	
+				//media+=aleatorio;	
 			}
 		}
 		else{
@@ -39,20 +39,23 @@ public class Main{
 			for (int i=0;i<semilla;i++) {
 				aleatorio=(semilla*multiplicador+corrimiento)%modulo;
 				//System.out.println(aleatorio);
-				multiplicador=aleatorio;
+				semilla=aleatorio;
 				array[i+1]=aleatorio;
-				media+=aleatorio;	
 			}
 		}
 		//Buscando la cola y tambien termino dando el periodo
 		//buscarLaCola(array, modulo);
 
-		double mediaImprimir = media/(numeros+1);
-
 		int[]array2 = new int[numeros];
 		for(int v=0; v<numeros; v++){
 			array2[v]=array[v];
+			//System.out.println(array2[v]);
+			media+=array2[v];	
 		}
+		
+		//System.out.println(media);
+		//System.out.println(numeros);
+		double mediaImprimir = (double)media/(double)(numeros);
 
 		InsertionSort(array2); //Ordenando el array
 
@@ -102,7 +105,7 @@ public class Main{
 	public static void desviacionEstandar(int[]arr, double media){
 		double counter=0;
 		for (int i=0; i<arr.length; i++){
-			counter+=(arr[i]-media)*(arr[i]-media);
+			counter+=Math.pow((arr[i]-media),2);
 		}
 		double varianza=counter/arr.length;
 		double desviacion=Math.sqrt(varianza);
