@@ -107,7 +107,11 @@ public class Main{
 		for (int i=0; i<arr.length; i++){
 			counter+=Math.pow((arr[i]-media),2);
 		}
-		double varianza=counter/arr.length;
+		//System.out.println("Wuuu");
+		//System.out.println(media);
+		//System.out.println(counter);
+		//System.out.println(arr.length);
+		double varianza=counter/(arr.length-1);
 		double desviacion=Math.sqrt(varianza);
 		System.out.printf("La varianza es: %.2f",  varianza);
 		System.out.println();
@@ -140,8 +144,14 @@ public class Main{
 		int bandera=0;
 		System.out.println("La moda es: ");
 		for(int j=0; j<numeros-1; j++){
-			if(num==arr[j]){
+			if(num==arr[j+1]){
+				//System.out.print(num);
+				//System.out.print(" ");
+				//System.out.println(arr[j+1]);
 				counter2++;
+				//System.out.print(counter2);
+				//System.out.print(" ");
+				//System.out.println(max);
 				if(counter2==max){
 					System.out.println(num + " Con " + (max+1) + " repeticiones");
 					counter2=0;
@@ -150,8 +160,8 @@ public class Main{
 				num=arr[j];
 			}	
 			else{
-				counter2=1;
-				num=arr[j];
+				counter2=0;
+				num=arr[j+1];
 			}
 		}
 		if(bandera==0){
