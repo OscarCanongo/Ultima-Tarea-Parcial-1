@@ -22,46 +22,36 @@ public class Main{
 
 		if(modulo<numeros){
 			array = new int[numeros+1];
-			//System.out.println(semilla);
 		    array[0]=semilla;
 			for (int i=0;i<numeros;i++) {
 				aleatorio=(semilla*multiplicador+corrimiento)%modulo;
-				//System.out.println(aleatorio);
 				semilla=aleatorio;
 				array[i+1]=aleatorio;
-				//media+=aleatorio;	
 			}
 		}
 		else{
 			array = new int[modulo+1];
-			//System.out.println(semilla);
 		    array[0]=semilla;
-			for (int i=1;i<modulo;i++) {
+			for (int i=0;i<modulo;i++) {
 				aleatorio=(semilla*multiplicador+corrimiento)%modulo;
-				//System.out.println(aleatorio);
 				semilla=aleatorio;
 				array[i+1]=aleatorio;
 			}
 		}
-		//Buscando la cola y tambien termino dando el periodo
+
+		//Cola, periodo y ciclo
 		buscarLaCola(array, modulo);
 
 		int[]array2 = new int[numeros];
 		for(int v=0; v<numeros; v++){
 			array2[v]=array[v];
-			//System.out.println(array2[v]);
 			media+=array2[v];	
 		}
 		
-		//System.out.println(media);
-		//System.out.println(numeros);
 		double mediaImprimir = (double)media/(double)(numeros);
 
-		InsertionSort(array2); //Ordenando el array
-
-		//for(int v1=0; v1<numeros; v1++){
-		//	System.out.println(array2[v1]);	
-		//}
+		//Ordenando el array
+		InsertionSort(array2); 
 
 		//Media
 		System.out.print("La media es: ");
@@ -111,10 +101,6 @@ public class Main{
 		for (int i=0; i<arr.length; i++){
 			counter+=Math.pow((arr[i]-media),2);
 		}
-		//System.out.println("Wuuu");
-		//System.out.println(media);
-		//System.out.println(counter);
-		//System.out.println(arr.length);
 		double varianza=counter/(arr.length-1);
 		double desviacion=Math.sqrt(varianza);
 		System.out.printf("La varianza es: %.2f",  varianza);
@@ -129,8 +115,6 @@ public class Main{
 		int counter2=0;
 		int max=0;
 		for(int i=0; i<numeros-1; i++){
-			//System.out.println("Num: " + num);
-			//System.out.println("Arr; "+arr[i+1]);
 			if(num==arr[i+1]){
 				counter++;
 				if(counter>max)
@@ -143,22 +127,15 @@ public class Main{
 				num=arr[i+1];
 			}
 		}
-		//System.out.println(max);
 		num=arr[0];
 		int bandera=0;
 		int counterNumeros=0;
 		System.out.println("La moda es: ");
 		for(int j=0; j<numeros-1; j++){
 			if(num==arr[j+1]){
-				//System.out.print(num);
-				//System.out.print(" ");
-				//System.out.println(arr[j+1]);
 				counter2++;
-				//System.out.print(counter2);
-				//System.out.print(" ");
-				//System.out.println(max);
 				if(counter2==max){
-					System.out.println(num + " Con " + (max+1) + " repeticiones");
+					System.out.println(num + " Con " + (max+1) + " repeticiones");//ESTO SE PUEDE QUITAR PARA FACILITAR LA LECTURA DEL PROGAMA------------------------------------------------------------
 					counter2=0;
 					bandera=1;	
 					counterNumeros++;
@@ -183,10 +160,18 @@ public class Main{
 		int aux=1;
 		int algo=0;
 		if(arr[0] == arr[modulo]){
-			System.out.println("No hay cola");
+			System.out.println("No hay cola. La longitud de la cola es 0");
+			System.out.println("La longitud del periodo es: ");
+			System.out.println(modulo);
 			System.out.println("El periodo es: ");
 			for(int k=0; k<modulo;k++){
-				System.out.println(arr[k]);
+				System.out.println(arr[k]);//ESTO SE PUEDE QUITAR PARA FACILITAR LA LECTURA DEL PROGAMA------------------------------------------------------------
+			}
+			System.out.println("La longitud del ciclo es: ");
+			System.out.println(modulo);
+			System.out.println("El ciclo es: ");
+			for(int ii=0; ii<modulo; ii++){
+				System.out.println(arr[ii]);//ESTO SE PUEDE QUITAR PARA FACILITAR LA LECTURA DEL PROGAMA------------------------------------------------------------
 			}
 		}
 		else{
@@ -201,22 +186,34 @@ public class Main{
 					aux++;
 				}
 			}
+			System.out.println("La longitud de la cola es: " + aux);
 			System.out.println("La cola es: ");
 			for(int j=0; j<aux; j++){
 				System.out.println(arr[j]);
 			}
-			System.out.println("El periodo es: ");
 			counter=0;
 			int aux2=0;
 			for(int q=aux; q<arr.length; q++){
 				if(arr[aux]==arr[q+1]){
 					aux2=q+1;
 					q=arr.length;
-					//System.out.println("el aux2 " + aux2);	
 				}
 			}
+			System.out.println("La longitud del periodo es: ");
+			System.out.println((aux2-aux));
+			System.out.println("El periodo es: ");
 			for(int l=aux; l<aux2; l++){
-				System.out.println(arr[l]);
+				System.out.println(arr[l]);//ESTO SE PUEDE QUITAR PARA FACILITAR LA LECTURA DEL PROGAMA------------------------------------------------------------
+			}
+
+			System.out.println("La longitud del ciclo es: ");
+			System.out.println((aux2));
+			System.out.println("El ciclo es: ");
+			for(int zz=0; zz<aux; zz++){
+				System.out.println(arr[zz]);//ESTO SE PUEDE QUITAR PARA FACILITAR LA LECTURA DEL PROGAMA------------------------------------------------------------
+			}
+			for(int xx=aux; xx<aux2; xx++){
+				System.out.println(arr[xx]);//ESTO SE PUEDE QUITAR PARA FACILITAR LA LECTURA DEL PROGAMA------------------------------------------------------------
 			}
 
 		}
@@ -225,11 +222,8 @@ public class Main{
 	public static void ajustar(int[]arr, int modulo){
 		double[] array = new double[arr.length];
 		double l = array.length;
-		//System.out.println(modulo);
 		for(int i=0; i<arr.length; i++){
 			array[i]=(double)arr[i]/modulo;
-			//System.out.println(arr[i]);
-			//System.out.println(modulo);
 		}
 		int uno=0;
 		int dos=0;
