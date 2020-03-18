@@ -1,3 +1,5 @@
+//Oscar Canongo Vergara A01730443
+//Benny Aldahir Ruiz Jimenez A01328177
 import java.util.Scanner;
 public class Main{
 	public static void main(String[] args) {

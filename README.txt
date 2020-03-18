@@ -1,3 +1,5 @@
+//Oscar Canongo Vergara A01730443
+//Benny Aldahir Ruiz Jimenez A01328177
 Si el usuario quisiera ver mas limpio el programa (sin todos los datos de la cola,
 periodo, ciclo y moda) se pueden eliminar las lineas:
 -168
