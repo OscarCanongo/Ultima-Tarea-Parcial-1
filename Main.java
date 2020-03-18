@@ -284,7 +284,6 @@ public class Main{
 				}
 			}
 		}
-		//System.out.println(uno);
 		System.out.println("Porcentaje de valores entre 0.0 y 0.1");
 		double algo=(double)(uno/l*100);
 		System.out.println(algo + "%");
